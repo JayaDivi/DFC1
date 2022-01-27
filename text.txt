@@ -1,0 +1,7 @@
+
+User accounts for \\WSMUM001203
+
+-------------------------------------------------------------------------------
+Controller               DefaultAccount           Guest                    
+The command completed successfully.
+
