@@ -21,7 +21,7 @@ public class Collections {
 //		getDocumentUsingAL();
 //		sessionManager();
 //		getUsernameMail();
-		getObjects();
+//		getObjects();
 	}
 
 	static void sessionManager() throws DfException {
