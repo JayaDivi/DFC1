@@ -1,0 +1,49 @@
+create edmapp_org_folder objects set object_name='Business Initiatives Department' link '/Case/Rajasthan'; 
+
+create edmapp_org_folder objects set object_name='Business Initiatives 	Department' link '/NABARD/Rajasthan'; 
+
+create edmapp_autonumber_configur objects set autonumber_for =1,set object_name='AUTO NUMBER CONFIG - rj bid',set delimiter='-', set department ='bid',set ho_ro='RO',set ro_short_code='rj',set module_name='case',set fields_in_autonumber[0]= 'department_short_code',set fields_in_autonumber[1]='function_short_code',set fields_in_autonumber[2]='activity_short_code',set fields_in_autonumber[3]='years' LINK '/NB-CONFIG/Admin Config/Depart Admin Config'; 
+
+create edmapp_autonumber_module objects set object_name ='AUTO 	NUMBER MODULE CONFIG - rj bid',set department='bid',set module_name = 'case',set ho_ro='RO',set ro_short_code='rj',set field_list[0]='department_short_code',set field_list[0]='department_short_code',set field_list[1]= 'function_short_code',set field_list[2]='activity_short_code',set field_list[3]='years',set field_list[4]='file_number',set field_list[5]='language_type' LINK '/NB-CONFIG/Admin Config/Depart Admin Config';   
+
+create edmapp_dept_mandatory objects set object_type ='document', set departments_short_code='bid',set ho_ro='RO',set ro_short_code='rj', set names=true,set functions =true,set activity =true, set keyword =true,set keywords_minimum=1,set file_no =true, set years=true,set number_of_fav_documents=25,set number_of_recent_documents=25 LINK'/NB-CONFIG/Admin Config/Depart Admin Config/Mandatory Field';
+
+create edmapp_dept_mandatory objects set object_type ='case', set departments_short_code ='bid',set ho_ro='RO',set ro_short_code='rj', set names=true,set functions=true,set activity =true, set keyword =true ,set keywords_minimum =1, set years=true LINK'/NB-CONFIG/Admin Config/Depart Admin Config/Mandatory Field'; 	
+
+create dm_group object set group_name='nb_wf_rj_bid_grade_a' set group_class='group' set group_global_unique_id ='EDMS:nb_wf_rj_bid_grade_a' set group_display_name ='RO RJ BID GRADE A'; 
+
+create dm_group object set group_name='nb_wf_rj_bid_grade_b' set group_class='group' set group_global_unique_id ='EDMS:nb_wf_rj_bid_grade_b' set group_display_name ='RO RJ BID GRADE B'; 
+
+create dm_group object set group_name='nb_wf_rj_bid_grade_c' set group_class='group' set group_global_unique_id ='EDMS:nb_wf_rj_bid_grade_c' set group_display_name ='RO RJ BID GRADE C'; 
+
+create dm_group object set group_name='nb_wf_rj_bid_grade_d' set group_class='group' set group_global_unique_id ='EDMS:nb_wf_rj_bid_grade_d' set group_display_name ='RO RJ BID GRADE D'; 
+
+create dm_group object set group_name='nb_wf_rj_bid_grade_e' set group_class='group' set group_global_unique_id ='EDMS:nb_wf_rj_bid_grade_e' set group_display_name ='RO RJ BID GRADE E'; 
+
+create dm_group object set group_name='nb_wf_rj_bid_grade_f' set group_class='group' set group_global_unique_id ='EDMS:nb_wf_rj_bid_grade_f' set group_display_name ='RO RJ BID GRADE F'; 
+
+
+create dm_group object set group_name='nb_wf_rj_bid_group_b' set group_class='group' set group_global_unique_id ='EDMS:nb_wf_rj_bid_group_b' set group_display_name ='RO RJ BID GROUP B'; 
+
+create dm_group object set group_name='nb_rj_bid_admin' set group_class='group' set group_global_unique_id='EDMS:nb_rj_bid_admin' set group_display_name ='RO RJ BID ADMIN Users'; 
+
+create dm_group object set group_name='nb_rj_bid_read' set group_class='group' set group_global_unique_id ='EDMS:nb_rj_bid_read' set group_display_name ='RO RJ BID READ Users'; 
+
+create dm_group object set group_name='nb_rj_bid_edit' set group_class='group' set group_global_unique_id ='EDMS:nb_rj_bid_edit' set group_display_name ='RO RJ BID EDIT Users'; 
+ 
+create dm_group object set group_name='nb_rj_bid_all_users'  
+
+set group_class='group'  
+
+set group_global_unique_id='EDMS:nb_rj_bid_all_users'  
+
+set group_display_name ='RO RJ BID ALL USERS'; 
+
+create edmapp_dept_admin_config objects set category='Type of Step', set department_name='bid', set ho_ro='RO', set ro_short_code= 'rj',set is_mandatory=true, set s_no=1,  set value_display='Letter'LINK'/NB-CONFIG/Admin Config/Depart Admin Config',set object_name ='Depart Admin Config BO' ; 
+
+create edmapp_dept_admin_config objects set category='Type of Step', set department_name='bid', set ho_ro='RO', set ro_short_code= 'rj',set is_mandatory=true, set s_no=2,  set value_display='IOM'LINK'/NB-CONFIG/Admin Config/Depart Admin Config',set object_name ='Depart Admin Config BO' ; 
+
+create edmapp_dept_admin_config objects set category='Type of Step', set department_name='bid', set ho_ro='RO', set ro_short_code= 'rj',set is_mandatory=true, set s_no=3, set value_display='IDM'LINK'/NB-CONFIG/Admin Config/Depart Admin Config',set object_name ='Depart Admin Config BO' ; 
+
+create edmapp_dept_admin_config objects set category='Type of Step', set department_name='bid', set ho_ro='RO', set ro_short_code= 'rj',set is_mandatory=true, set s_no=4,set value_display='Circular'LINK'/NB-CONFIG/Admin Config/Depart Admin Config',set object_name ='Depart Admin Config BO' ;
+

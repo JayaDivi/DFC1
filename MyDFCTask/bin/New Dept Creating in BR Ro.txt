@@ -1,0 +1,143 @@
+create edmapp_org_folder objects set object_name='Accounts Department' link '/Case/Bihar'; 
+
+create edmapp_org_folder objects set object_name='Accounts Department' link '/NABARD/Bihar'; 
+
+
+create edmapp_autonumber_configur objects set autonumber_for =1,set object_name='AUTO NUMBER CONFIG - br ad',set delimiter='-', set department ='ad',set ho_ro='RO',set ro_short_code='br',set module_name='case',set fields_in_autonumber[0]= 'department_short_code',set fields_in_autonumber[1]='function_short_code',set fields_in_autonumber[2]='activity_short_code',set fields_in_autonumber[3]='years' LINK '/NB-CONFIG/Admin Config/Depart Admin Config'; 
+
+create edmapp_autonumber_module objects set object_name ='AUTO 	NUMBER MODULE CONFIG - br ad',set department='ad',set module_name = 'case',set ho_ro='RO',set ro_short_code='br',set field_list[0]='department_short_code',set field_list[0]='department_short_code',set field_list[1]= 'function_short_code',set field_list[2]='activity_short_code',set field_list[3]='years',set field_list[4]='file_number',set field_list[5]='language_type' LINK '/NB-CONFIG/Admin Config/Depart Admin Config';   
+
+create edmapp_dept_mandatory objects set object_type ='document', set departments_short_code='ad',set ho_ro='RO',set ro_short_code='br', set names=true,set functions =true,set activity =true, set keyword =true,set keywords_minimum=1,set file_no =true, set years=true,set number_of_fav_documents=25,set number_of_recent_documents=25 LINK'/NB-CONFIG/Admin Config/Depart Admin Config/Mandatory Field';
+
+create edmapp_dept_mandatory objects set object_type ='case', set departments_short_code ='ad',set ho_ro='RO',set ro_short_code='br', set names=true,set functions=true,set activity =true, set keyword =true ,set keywords_minimum =1, set years=true LINK'/NB-CONFIG/Admin Config/Depart Admin Config/Mandatory Field'; 
+
+
+create dm_group object set group_name='nb_wf_br_ad_grade_a' set group_class='group' set group_global_unique_id ='EDMS:nb_wf_br_ad_grade_a' set group_display_name ='RO BR AD GRADE A'; 
+
+create dm_group object set group_name='nb_wf_br_ad_grade_b' set group_class='group' set group_global_unique_id ='EDMS:nb_wf_br_ad_grade_b' set group_display_name ='RO BR AD GRADE B'; 
+
+create dm_group object set group_name='nb_wf_br_ad_grade_c' set group_class='group' set group_global_unique_id ='EDMS:nb_wf_br_ad_grade_c' set group_display_name ='RO BR AD GRADE C'; 
+
+create dm_group object set group_name='nb_wf_br_ad_grade_d' set group_class='group' set group_global_unique_id ='EDMS:nb_wf_br_ad_grade_d' set group_display_name ='RO BR AD GRADE D'; 
+
+create dm_group object set group_name='nb_wf_br_ad_grade_e' set group_class='group' set group_global_unique_id ='EDMS:nb_wf_br_ad_grade_e' set group_display_name ='RO BR AD GRADE E'; 
+
+create dm_group object set group_name='nb_wf_br_ad_grade_f' set group_class='group' set group_global_unique_id ='EDMS:nb_wf_br_ad_grade_f' set group_display_name ='RO BR AD GRADE F'; 
+
+
+create dm_group object set group_name='nb_wf_br_ad_group_b' set group_class='group' set group_global_unique_id ='EDMS:nb_wf_br_ad_group_b' set group_display_name ='RO BR AD GROUP B'; 
+
+create dm_group object set group_name='nb_br_ad_admin' set group_class='group' set group_global_unique_id='EDMS:nb_br_ad_admin' set group_display_name ='RO BR AD ADMIN Users'; 
+
+create dm_group object set group_name='nb_br_ad_read' set group_class='group' set group_global_unique_id ='EDMS:nb_br_ad_read' set group_display_name ='RO BR AD READ Users'; 
+
+create dm_group object set group_name='nb_br_ad_edit' set group_class='group' set group_global_unique_id ='EDMS:nb_br_ad_edit' set group_display_name ='RO BR AD EDIT Users'; 
+ 
+create dm_group object set group_name='nb_br_ad_all_users'  
+
+set group_class='group'  
+
+set group_global_unique_id='EDMS:nb_br_ad_all_users'  
+
+set group_display_name ='RO BR AD ALL USERS'; 
+
+create edmapp_dept_admin_config objects set category='Type of Step', set department_name='ad', set ho_ro='RO', set ro_short_code= 'br',set is_mandatory=true, set s_no=1,  set value_display='Letter'LINK'/NB-CONFIG/Admin Config/Depart Admin Config',set object_name ='Depart Admin Config BO' ; 
+
+create edmapp_dept_admin_config objects set category='Type of Step', set department_name='ad', set ho_ro='RO', set ro_short_code= 'br',set is_mandatory=true, set s_no=2,  set value_display='IOM'LINK'/NB-CONFIG/Admin Config/Depart Admin Config',set object_name ='Depart Admin Config BO' ; 
+
+create edmapp_dept_admin_config objects set category='Type of Step', set department_name='ad', set ho_ro='RO', set ro_short_code= 'br',set is_mandatory=true, set s_no=3, set value_display='IDM'LINK'/NB-CONFIG/Admin Config/Depart Admin Config',set object_name ='Depart Admin Config BO' ; 
+
+create edmapp_dept_admin_config objects set category='Type of Step', set department_name='ad', set ho_ro='RO', set ro_short_code= 'br',set is_mandatory=true, set s_no=4,set value_display='Circular'LINK'/NB-CONFIG/Admin Config/Depart Admin Config',set object_name ='Depart Admin Config BO' ;
+
+
+create,c,dm_acl
+set,c,l,object_name
+nb_br_ad_case_users_acl
+set,c,l,description
+NABARD BR AD CASE USERS ACL
+set,c,l,owner_name
+dm_dbo
+set,c,l,acl_class
+3
+grant,c,l,dm_world,1,EXECUTE_PROC,CHANGE_LOCATION
+grant,c,l,dm_owner,6,EXECUTE_PROC,CHANGE_LOCATION,CHANGE_STATE,CHANGE_PERMIT,CHANGE_OWNER
+grant,c,l,nb_global_admin,7,EXECUTE_PROC,CHANGE_LOCATION,CHANGE_STATE,CHANGE_PERMIT,CHANGE_OWNER,DELETE_OBJECT
+grant,c,l,nb_all_admin,7,EXECUTE_PROC,CHANGE_LOCATION,CHANGE_STATE,CHANGE_PERMIT,CHANGE_OWNER,DELETE_OBJECT
+grant,c,l,nb_br_ad_all_users,6,EXECUTE_PROC,CHANGE_LOCATION,CHANGE_STATE,CHANGE_PERMIT,CHANGE_OWNER
+grant,c,l,docu,7,EXECUTE_PROC,CHANGE_LOCATION,CHANGE_STATE,CHANGE_PERMIT,CHANGE_OWNER,DELETE_OBJECT
+grant,c,l,nb_ro_br_all_users,6,EXECUTE_PROC,CHANGE_LOCATION,CHANGE_STATE,CHANGE_PERMIT,CHANGE_OWNER
+save,c,l 
+
+
+create edmapp_linear_process objects set object_name= 'Linear Process BR AD BO', set department='ad', set ho_ro='RO', set ro_short_code= 'br',
+set dept_group_name[0]= 'nb_br_ad_admin',
+set dept_group_name[1]= 'nb_ro_br_cgm',
+set dept_group_name[2]='nb_nabnet_users',
+set dept_group_name[3]='nb_dmd',
+set dept_group_name[4]='nb_chairman'
+set dept_group_name[5]=' nb_dmds1_dmd'
+set dept_group_name[6]='nb_wf_br_ad_grade_a'
+set dept_group_name[7]='nb_wf_br_ad_grade_b'
+set dept_group_name[8]='nb_wf_br_ad_grade_c'
+set dept_group_name[9]='nb_wf_br_ad_grade_d'
+set dept_group_name[10]='nb_wf_br_ad_grade_e'
+set dept_group_name[11]='nb_wf_br_ad_grade_f'
+set dept_group_name[12]='nb_wf_br_ad_group_b' LINK '/NB-CONFIG/Process/Linear Process' ;
+
+
+create edmapp_department_configur objects set object_name ='AD Department DEPT ADMIN CONFIG BO', set dept_name='AD', set dept_short_code='ad', set ho_ro ='RO', set ro_short_code='br', set cgm_group='nb_ro_br_cgm',set cgm_secretary_group='nb_br_cgm_secretary' , set department_all_users='nb_br_ad_all_users' LINK '/NB-CONFIG/Admin Config/Depart Admin Config';
+ 
+
+create edmapp_dept_admin_config objects set category='Document Type', set department_name='ad', set ho_ro='RO', set ro_short_code= 'br',set is_mandatory=true, set s_no=1,  set value_display='Letter' LINK '/NB-CONFIG/Admin Config/Depart Admin Config',set object_name ='Depart Admin Config BO';
+
+create edmapp_dept_admin_config objects set category='Document Type', set department_name='ad', set ho_ro='RO', set ro_short_code= 'br',set is_mandatory=true, set s_no=2,  set value_display='IOM' LINK '/NB-CONFIG/Admin Config/Depart Admin Config',set object_name ='Depart Admin Config BO';
+
+create edmapp_dept_admin_config objects set category='Document Type', set department_name='ad', set ho_ro='RO', set ro_short_code= 'br',set is_mandatory=true, set s_no=3, set value_display='IDM' LINK '/NB-CONFIG/Admin Config/Depart Admin Config',set object_name ='Depart Admin Config BO';
+
+create edmapp_dept_admin_config objects set category='Document Type', set department_name='ad', set ho_ro='RO', set ro_short_code= 'br',set is_mandatory=true, set s_no=4,  set value_display='Circular' LINK '/NB-CONFIG/Admin Config/Depart Admin Config',set object_name ='Depart Admin Config BO';
+
+create edmapp_dept_admin_config objects set category='Document Status', set department_name='ad', set ho_ro='RO', set ro_short_code='br',set is_mandatory=true, set s_no=1, set value_display='Draft' LINK '/NB-CONFIG/Admin Config/Depart Admin Config',set object_name ='Depart Admin Config BO'; 
+
+create edmapp_dept_admin_config objects set category='Document Status', set department_name='ad',set ho_ro='RO', set ro_short_code='br',set is_mandatory=false, set s_no=2,  set value_display='In Review' LINK '/NB-CONFIG/Admin Config/Depart Admin Config',set object_name ='Depart Admin Config BO'; 
+
+create edmapp_dept_admin_config objects set category='Document Status', set department_name='ad',set ho_ro='RO', set ro_short_code='br',set is_mandatory=false, set s_no=3,  set value_display='Reviewed' LINK '/NB-CONFIG/Admin Config/Depart Admin Config',set object_name ='Depart Admin Config BO'; 
+
+create edmapp_dept_admin_config objects set category='Document Status', set department_name='ad',set ho_ro='RO', set ro_short_code='br',set is_mandatory=false, set s_no=4,  set value_display='Approved' LINK '/NB-CONFIG/Admin Config/Depart Admin Config',set object_name ='Depart Admin Config BO';
+
+create edmapp_dept_admin_config objects set category='Document Status', set department_name='ad', set ho_ro='RO', set ro_short_code='br',set is_mandatory=true, set s_no=5,  set value_display='Final' LINK '/NB-CONFIG/Admin Config/Depart Admin Config',set object_name ='Depart Admin Config BO'; 
+
+####  Run in API Scrit
+
+
+
+create,c,dm_acl
+set,c,l,object_name
+nb_br_ad_all_users_acl
+set,c,l,description
+NABARD BR AD User ACL
+set,c,l,owner_name
+dm_dbo
+set,c,l,acl_class
+3
+grant,c,l,dm_world,1,EXECUTE_PROC,CHANGE_LOCATION
+grant,c,l,dm_owner,6,EXECUTE_PROC,CHANGE_LOCATION,CHANGE_STATE,CHANGE_PERMIT,CHANGE_OWNER
+grant,c,l,nb_br_ad_read,6,EXECUTE_PROC,CHANGE_LOCATION
+grant,c,l,nb_br_ad_all_users,6,EXECUTE_PROC,CHANGE_LOCATION,CHANGE_STATE,CHANGE_PERMIT,CHANGE_OWNER
+grant,c,l,nb_br_ad_admin,6,EXECUTE_PROC,CHANGE_LOCATION,CHANGE_STATE,CHANGE_PERMIT,CHANGE_OWNER
+grant,c,l,docu,7,EXECUTE_PROC,CHANGE_LOCATION,CHANGE_STATE,CHANGE_PERMIT,CHANGE_OWNER
+grant,c,l,nb_br_ad_edit,6,EXECUTE_PROC,CHANGE_LOCATION,CHANGE_STATE,CHANGE_PERMIT,CHANGE_OWNER 
+
+ save,c,l 
+
+
+create dm_group object set group_name= 'nb_br_ad_cgm'
+set group_class='group'
+set group_global_unique_id='EDMS:nb_br_ad_cgm '
+set group_display_name ='BR AD CGM'; 
+
+
+
+create dm_group object set group_name= 'nb_wf_br_ad_grade_c_d'
+set group_class='group'
+set group_global_unique_id ='EDMS: nb_wf_br_ad_grade_c_d'
+set group_display_name = 'BR AD AGM AND DGM';

@@ -1,0 +1,2 @@
+create edmapp_input_data object set function_code='{column 4}', set function_name='{column 3}', set category='Function', set department_code='{column 2}', set ho_ro='RO', set ro_code='hr';
+

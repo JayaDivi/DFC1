@@ -1,0 +1,8 @@
+
+
+alter group nb_uk_ro_admin add 'Ajay Kumar Soni';
+alter group edmapp_ro_admin add 'Ajay Kumar Soni';
+
+
+
+nb_ad_ro_admin
